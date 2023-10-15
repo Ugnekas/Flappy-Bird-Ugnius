@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: aa8bc6406b034014d9fcdba28ebb08bd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Life Savers
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e5bdcee5dc129ab49b166e19e1834689, type: 3}
+  - {fileID: 12800000, guid: d9a476a2ec31e5345afcf0af0591e506, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
