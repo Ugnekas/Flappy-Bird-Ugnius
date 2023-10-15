@@ -7,6 +7,11 @@ public class FlappyButton : MonoBehaviour
 {
     public string nextSceneName;
 
+    
+
+ 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +34,8 @@ public class FlappyButton : MonoBehaviour
         if (nextSceneName != "")
         {
             SceneManager.LoadScene(nextSceneName);
+            
+            
         }
     }
 }
