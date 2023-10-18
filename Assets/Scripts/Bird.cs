@@ -12,7 +12,10 @@ public class Bird : MonoBehaviour
     public int score;
     public GameObject endScreen;
 
-    public GameObject[] birds;
+    public GameObject yellowBird;
+    public GameObject redBird;
+    public GameObject blueBird;
+
 
 
     public TMP_Text scoreText;
@@ -23,21 +26,24 @@ public class Bird : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Pipe.speed = speed;
 
-        if (birds.Length < 2)
+        ChooseBird();
+    }
+
+    public void ChooseBird()
+    {
+        var rnd = Random.Range(0f, 1f);
+        if (rnd < 0.33f)
         {
-            Debug.LogError("You need to assign at least 2 bird GameObjects in the Inspector.");
-            return;
+            yellowBird.SetActive(true);
         }
-
-        // Choose a random index within the range of the 'birds' array
-        int randomIndex = Random.Range(0, birds.Length);
-
-        // Activate the selected bird and deactivate the others
-        for (int i = 0; i < birds.Length; i++)
+        else if (rnd < 0.66)
         {
-            birds[i].SetActive(i == randomIndex);
+            redBird.SetActive(true);
         }
-
+        else
+        {
+            blueBird.SetActive(true);
+        }
     }
 
     void Update()
