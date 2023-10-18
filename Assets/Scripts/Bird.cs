@@ -15,11 +15,17 @@ public class Bird : MonoBehaviour
     public GameObject yellowBird;
     public GameObject redBird;
     public GameObject blueBird;
+    public GameObject flash;
 
 
 
     public TMP_Text scoreText;
     Rigidbody2D rb;
+
+    public AudioSource scoreSource;
+    public AudioSource deathSound;
+    public AudioSource jumpSound;
+
 
     void Start()
     {
@@ -27,6 +33,10 @@ public class Bird : MonoBehaviour
         Pipe.speed = speed;
 
         ChooseBird();
+
+        scoreSource = GetComponent<AudioSource>();
+        deathSound = GetComponent<AudioSource>();
+        jumpSound = GetComponent<AudioSource>();
     }
 
     public void ChooseBird()
@@ -53,6 +63,7 @@ public class Bird : MonoBehaviour
         if ( Input.GetKeyDown(KeyCode.Mouse0))
         {
             rb.velocity = Vector2.up * jumpSpeed;
+            jumpSound.Play();
             
         }
 
@@ -73,6 +84,11 @@ public class Bird : MonoBehaviour
         Pipe.speed = 0;
         jumpSpeed = 0;
         Invoke("ShowMenu", 1f);
+
+        PlayerPrefs.SetInt("score", score);
+        flash.SetActive(true);
+
+        deathSound.Play();
     }
 
     void ShowMenu()
@@ -86,5 +102,6 @@ public class Bird : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+        scoreSource.Play();
     }
 }
